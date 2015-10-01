@@ -126,4 +126,12 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('Tymon\JWTAuth\Validators\PayloadValidator', $this->factory->validator());
     }
+
+    /** @test */
+    public function it_should_return_numeric_values_according_to_specs()
+    {
+        $this->assertInternalType('int', $this->factory->exp());
+        $this->assertInternalType('int', $this->factory->nbf());
+        $this->assertInternalType('int', $this->factory->iat());
+    }
 }
